@@ -145,15 +145,8 @@ USE_TZ = True
 # 1. Pehle basic media settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# settings.py mein purane DEFAULT_FILE_STORAGE ko hata kar ye paste karein:
 
-# 2. Phir Cloudinary settings (Ye order zaroori hai)
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dguujmj75',
-    'API_KEY': '441238871653336',
-    'API_SECRET': 'IdV3dJ8PFjvWzR7vqrWJajtJVog',
-}
-
-# settings.py mein jahan DEFAULT_FILE_STORAGE hai use aise badal kar dekhein:
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
@@ -162,6 +155,22 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+# Cloudinary Details (Ensure karein ye file ke end mein ho)
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dguujmj75',
+    'API_KEY': '441238871653336',
+    'API_SECRET': 'IdV3dJ8PFjvWzR7vqrWJajtJVog',
+}
+
+# 2. Phir Cloudinary settings (Ye order zaroori hai)
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dguujmj75',
+    'API_KEY': '441238871653336',
+    'API_SECRET': 'IdV3dJ8PFjvWzR7vqrWJajtJVog',
+}
+
+
 
 # Static files settings
 STATIC_URL = '/static/'
