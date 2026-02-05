@@ -157,20 +157,21 @@ USE_TZ = True
 # settings.py ke aakhiri mein ye pura block paste kar dein
 
 # Cloudinary Credentials
+# settings.py के अंत में इसे पेस्ट करें
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dguujmj75',
     'API_KEY': '441238871653336',
-    'API_SECRET': 'IdV3dJ8PFjvWzR7vqrWJajtJVog', # Aapka secret yahan paste karein
+    'API_SECRET': 'IdV3dJ8PFjvWzR7vqrWJajtJVog',
 }
 
-# Ye line Django ko batati hai ki images Cloudinary par bhejo
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Static files settings
+# Static files (Whitenoise use kar rahe hain)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Media settings (Local development ke liye)
+# Media settings (Local testing ke liye)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
