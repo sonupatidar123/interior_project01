@@ -153,8 +153,15 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': 'IdV3dJ8PFjvWzR7vqrWJajtJVog',
 }
 
-# 3. Sabse aakhiri mein ye line force karein
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# settings.py mein jahan DEFAULT_FILE_STORAGE hai use aise badal kar dekhein:
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 # Static files settings
 STATIC_URL = '/static/'
