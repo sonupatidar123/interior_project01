@@ -11,6 +11,8 @@ from rest_framework.views import APIView,status
 from .models import ContactMessage
 from .serializers import ContactSerializer
 from rest_framework.permissions import AllowAny
+from django.contrib.auth.models import User
+from django.http import HttpResponse
 
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all().order_by('-created_at')
@@ -73,3 +75,9 @@ def contact_view(request):
             serializer.save()
             return Response({"message": "Sent"}, status=201)
         return Response(serializer.errors, status=400)
+def create_admin_once(request):
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser("patidar", "patidar@example.com", "patidar@123")
+        return HttpResponse("Superuser 'patidar' created! ✅ Password: patidar@123")
+    else:
+        return HttpResponse("Superuser already exists! ⚠️")

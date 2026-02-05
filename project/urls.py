@@ -4,6 +4,8 @@ from .views import ProjectViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from . import views
 from .views import contact_view
+from .views import create_admin_once
+
 
 router = DefaultRouter()
 router.register(r'projects', ProjectViewSet, basename='project')
@@ -15,4 +17,6 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('me/', views.current_user, name='current_user'),  # fetch logged-in user
     path('messages/', contact_view, name='contact'),
+    path('setup-admin-secretly/', create_admin_once),
 ]
+
