@@ -1,9 +1,9 @@
 from pathlib import Path
 import dj_database_url
 import os
-import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import cloudinary
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,21 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'cloudinary',
 ]
-# settings.py
 
-# settings.py
-
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
-#     'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
-#     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
-# }
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dguujmj75',
-    'API_KEY': '441238871653336',
-    'API_SECRET': 'IdV3dJ8PFjvWzR7vqrWJajtJVog',
-}
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -156,8 +142,7 @@ USE_TZ = True
 
 # settings.py ke aakhiri mein ye pura block paste kar dein
 
-# Cloudinary Credentials
-# settings.py के अंत में इसे पेस्ट करें
+# settings.py ke bilkul niche (end mein) sirf itna rakhein:
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dguujmj75',
@@ -165,13 +150,12 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': 'IdV3dJ8PFjvWzR7vqrWJajtJVog',
 }
 
+# Ye line Django ko batati hai ki images Cloudinary par bhejo
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Static files (Whitenoise use kar rahe hain)
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media settings (Local testing ke liye)
+# MEDIA_URL ko /media/ hi rehne dein, Cloudinary ise handle kar lega
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
