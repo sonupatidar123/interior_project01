@@ -26,6 +26,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
     "http://localhost:4173",
     'https://lucky-interior-git-main-sonupatidar123s-projects.vercel.app'
+    'https://sonupatidar123.github.io/interiorSite/'
 
 ]
 # For quick local testing you can also set CORS_ALLOW_ALL_ORIGINS = True (disable for production)
