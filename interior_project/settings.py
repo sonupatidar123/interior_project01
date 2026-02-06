@@ -23,10 +23,8 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 ALLOWED_HOSTS = ['interior-project01.onrender.com', 'localhost', '127.0.0.1']
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8080',
-    "http://localhost:4173",
-    'https://lucky-interior-git-main-sonupatidar123s-projects.vercel.app'
-    'https://sonupatidar123.github.io/interiorSite/'
+        'https://sonupatidar123.github.io/interiorSite/',
+        'https://lucky-interior-git-main-sonupatidar123s-projects.vercel.app'
 
 ]
 # For quick local testing you can also set CORS_ALLOW_ALL_ORIGINS = True (disable for production)
